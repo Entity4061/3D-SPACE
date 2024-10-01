@@ -15,7 +15,7 @@
     <script>
         // Set up the scene, camera, and renderer
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000); // Increase far clipping plane
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor(0x000000); // Set background color to black
@@ -74,6 +74,9 @@
 
         // Add basic controls
         const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; // Enable damping (inertia)
+        controls.dampingFactor = 0.25; // Damping factor
+        controls.enableZoom = true; // Enable zooming
 
         // Animation loop
         function animate() {
